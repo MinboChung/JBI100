@@ -42,31 +42,30 @@ $$77_{TotalDays} = 15_{Nov} + 31_{Dec} + 31_{Jan} + 1_{Feb} - 1_{ExamDate}$$
 $$38.5_{Weeks} = \frac{77_{TotalDays}}{2_{DaysPerWeek}}$$
 
 
-
 **Exam date: 1st Feb 2024**
-
+s
 <div style="display: flex; justify-content: space-between; text-align: center;">
 
-| Date  (Yr 2023) | Topics covered | ✓ |
+| Date  (Yr 2023) | Topics covered | Check |
 |------------|----------------|---|
-| 2023-11-15 |               |   |
-| 2023-11-17 |               |   |
-| 2023-11-22 |               |   |
-| 2023-11-24 |               |   |
-| 2023-11-29 |               |   |
-| 2023-12-01 |               |   |
-| 2023-12-06 |               |   |
-| 2023-12-08 |               |   |
-| 2023-12-13 |               |   |
-| 2023-12-15 |               |   |
-| 2023-12-20 |               |   |
+| 2023-11-15 |    Organization + Introduction           |  ✓ |
+| 2023-11-17 |      Design Space - what and data abstraction - Visual Encodings / perception         |   |
+| 2023-11-22 |      Why and task abstraction        |   |
+| 2023-11-24 |     GUI programming Voluntary        |   |
+| 2023-11-29 |       Visual encodings + perception + Color        |   |
+| 2023-12-01 |        Finalize color Idioms and Interaction       |   |
+| 2023-12-06 |      Discussion about good/bad visualizations         |   |
+| 2023-12-08 |       Deadline interim report        |   |
+| 2023-12-13 |       Complex multivariate idioms and data reduction        |   |
+| 2023-12-15 |        No lecture       |   |
+| 2023-12-20 |         Maps, Graph, time varying data      |   |
 | 2023-12-22 |               |   |
 | 2023-12-27 |               |   |
 | 2023-12-29 |               |   |
 
 | Date  (Yr 2024) | Topics Covered | ✓ |
 |------------|----------------|---|
-| 2024-01-03 |               |   |
+| 2024-01-03 |        Validation + Exam Questions       |   |
 | 2024-01-05 |               |   |
 | 2024-01-10 |               |   |
 | 2024-01-12 |               |   |
