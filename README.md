@@ -78,4 +78,14 @@ s
 
 </div>
 
-## 
+## Software packages installed for `jbi100-app`
+
+First, this app was built on windows OS.
+
+```{Python}
+# Installed node.js
+node    v20.10.0
+npm     10.2.5
+```
+
+The app was built with Typescript and d3 is installed as well `npm i d3 @types/d3`
