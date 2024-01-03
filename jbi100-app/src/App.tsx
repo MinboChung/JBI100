@@ -1,6 +1,7 @@
 import React, { Component, RefObject } from 'react';
 import * as d3 from 'd3';
 import jsonData from './dataset/player_defense.json'; // Import JSON data
+import LinePlot from './my_components/LinePlot';
 
 interface PlayerData {
   player: string;
@@ -68,9 +69,20 @@ class App extends Component<{}, {}> {
   }
 
   render() {
+    const data = [5, 10, 15, 20, 25] // Sample data
+
     return (
       <div className="App">
+        <h1>Hello world</h1>
+        <h2>D3 project</h2>
+        
+        {/* Including the LinePlot component */}
+        <LinePlot data={data} width={800} height={600} marginTop={30} marginBottom={40} marginLeft={60} marginRight={40} />
+
         <table ref={this.tableRef}></table>
+
+
+
       </div>
     );
   }
