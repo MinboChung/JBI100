@@ -1,58 +1,78 @@
-import React from 'react';
+import React, { Component, RefObject } from 'react';
 import * as d3 from 'd3';
-import './App.css';
+import jsonData from './dataset/player_defense.json'; // Import JSON data
 
-interface IProps {
-  
+interface PlayerData {
+  player: string;
+  position: string;
+  team: string;
+  age: string | number;
+  birth_year: string | number;
+  minutes_90s: string | number;
+  tackles: string | number;
+  tackles_won: string | number;
+  tackles_def_3rd: string | number;
+  tackles_mid_3rd: string | number;
+  tackles_att_3rd: string | number;
+  dribble_tackles: string | number;
+  dribbles_vs: string | number;
+  dribble_tackles_pct: string | number;
+  dribbled_past: string | number;
+  blocks: string | number;
+  blocked_shots: string | number;
+  blocked_passes: string | number;
+  interceptions: string | number;
+  tackles_interceptions: string | number;
+  clearances: string | number;
+  errors: string | number;
+  [key: string]: string|number;
 }
 
-interface IState {
-  
-}
+class App extends Component<{}, {}> {
+  private tableRef: RefObject<HTMLTableElement>;
 
-class App extends React.Component<IProps, IState> {
-  ref!: SVGSVGElement;  
-  
-  private buildGraph(data: Array<number>) {
-    const width = 200,
-    scaleFactor = 10,
-    barHeight = 20;
-
-    const graph = d3.select(this.ref)
-      .attr("width", width)
-      .attr("height", barHeight * data.length);
-
-    const bar = graph.selectAll("g")
-      .data(data)
-      .enter()
-      .append("g")
-      .attr("transform", function(d, i) {
-            return "translate(0," + i * barHeight + ")";
-      });
-
-    bar.append("rect")
-      .attr("width", function(d) {
-                return d * scaleFactor;
-      })
-      .attr("height", barHeight - 1);
-       
-    bar.append("text")
-      .attr("x", function(d) { return (d*scaleFactor); })
-      .attr("y", barHeight / 2)
-      .attr("dy", ".35em")
-      .text(function(d) { return d; });
-    
+  constructor(props: {}) {
+    super(props);
+    this.tableRef = React.createRef();
   }
-  
+
   componentDidMount() {
-    // activate   
-    this.buildGraph([5, 10, 12]);
+    const columns = Object.keys(jsonData[0]);
+
+    const table = d3.select(this.tableRef.current!);
+    const thead = table.append('thead');
+    const tbody = table.append('tbody');
+
+    // Append table header
+    thead.append('tr')
+      .selectAll('th')
+      .data(columns)
+      .enter()
+      .append('th')
+      .text((column: string) => column);
+
+    // Append table rows
+    const rows = tbody.selectAll('tr')
+      .data(jsonData)
+      .enter()
+      .append('tr');
+
+    // Append cells in each row
+    rows.selectAll('td')
+      .data((row: PlayerData) => {
+        return columns.map((column) => row[column]);
+      })
+      .enter()
+      .append('td')
+      .text((d) => d);
   }
 
   render() {
-    return (<div className="svg">
-      <svg className="container" ref={(ref: SVGSVGElement) => this.ref = ref} width='100' height='100'></svg>
-    </div>);
+    return (
+      <div className="App">
+        <table ref={this.tableRef}></table>
+      </div>
+    );
   }
 }
 
